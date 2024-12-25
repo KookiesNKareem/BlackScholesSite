@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Option Pricing Tool</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+  <h1>Option Pricing Tool</h1>
+
+  <div class="container" id="main-container">
+    <!-- Left Column (Form) -->
+    <div class="left-col">
+      <form id="option-form">
+        <label for="ticker">Ticker Symbol</label>
+        <input type="text" id="ticker" name="ticker" placeholder="e.g. AAPL" required />
+
+        <label for="current_price">Current Price</label>
+        <input type="text" id="current_price" placeholder="Auto-Filled" readonly />
+
+        <label for="expiration_date">Expiration Date</label>
+        <select id="expiration_date" name="expiration_date" required>
+        </select>
+
+        <label for="option_type">Option Type</label>
+        <select id="option_type" name="option_type">
+          <option value="call">Call</option>
+          <option value="put">Put</option>
+        </select>
+
+        <label for="strike_price">Strike Price</label>
+        <select id="strike_price" name="strike_price" required>
+        </select>
+
+        <label for="risk_free_rate">Risk-Free Rate (%)</label>
+        <input type="text" id="risk_free_rate" name="risk_free_rate" placeholder="Auto-Filled" required />
+
+        <button type="submit">Calculate</button>
+      </form>
+    </div>
+
+    <!-- Right Column (Results) -->
+    <div class="right-col hidden" id="result-column">
+      <div id="result-container">
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
